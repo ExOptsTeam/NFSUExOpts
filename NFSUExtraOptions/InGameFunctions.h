@@ -47,3 +47,4 @@ int(*PreRaceStatsScreen_SetVisibility)(DWORD* PreRaceStatsScreen, bool EAX_visib
 bool(*FEngIsScriptRunning)(char const* EAX_pkg, int EDI_hash, char const* script) = (bool(*)(char const*, int, char const*))0x4F6C80;
 int(*FEngSetVisible)(char const* EDI_pkg,char const* EDX_obj) = (int(*)(char const*, char const*))0x414A60;
 DWORD QRModeSelectScreen_MaybeMakeGameModeAvailable = 0x4B6FE0;
+void(_stdcall* SetInputMode)(void* EAX_Player, InputMode stack_mode) = (void(_stdcall*)(void*, InputMode))0x42D520;

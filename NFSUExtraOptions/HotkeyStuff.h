@@ -100,6 +100,16 @@ void Thing()
 			else
 			{
 				MakeUserCall(Player_AutoPilotOff, 1, edi, PlayerThing);
+				// can't use MakeUserCall because ChangeInputMode is stdcall like function as most functions in game
+				//MakeUserCall(SetInputMode, 2, eax, *(void**)_PlayersByIndex, esp, InputMode::IM_game);
+				_asm 
+				{
+					mov ebx, _PlayersByIndex
+					mov ebx, [ebx]
+					mov eax, ebx
+					push IM_game
+					call SetInputMode
+				}
 			}
 		}
 	}
